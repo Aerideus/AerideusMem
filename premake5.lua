@@ -59,5 +59,5 @@ project "Sandbox"
   
     files { "Sandbox/src/*.c", "Sandbox/src/*.h" }
 
-    includedirs { "AerideusMem/include" }
-    links { "AerideusMem" }
+    includedirs { "AerideusMem/include", "AerideusLog1_0/include" }
+    links { "AerideusMem", "AerideusLog1_0" }
