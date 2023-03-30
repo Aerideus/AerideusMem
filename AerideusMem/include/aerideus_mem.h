@@ -1,3 +1,4 @@
+#include "aerideus_log.h"
 
 #include <stdlib.h>
 
@@ -125,5 +126,97 @@ void i_ae_free_debug(void* d);
 /// </summary>
 /// <param name="d">is the pointer to the allocated memory</param>
 #define AE_FREE(d) free(d)
+
+#endif // AE_DIST
+
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_ALLOCATIONS_CONSOLE)
+/// </summary>
+/// <param name="l">should not be specified</param>
+void i_ae_log_allocations_console_debug(log_level l);
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_ALLOCATIONS_FILE)
+/// </summary>
+/// <param name="l">should not be specified</param>
+void i_ae_log_allocations_file_debug(log_level l);
+
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_LEAKS_CONSOLE)
+/// </summary>
+void i_ae_log_leaks_console_debug();
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_LEAKS_FILE)
+/// </summary>
+void i_ae_log_leaks_file_debug();
+
+#ifdef AE_DEBUG
+
+/// <summary>
+/// Logs all current allocations to the console when the build type is Debug.
+/// </summary>
+/// <param name="l">is the log_level to be used</param>
+#define AE_LOG_ALLOCATIONS_CONSOLE(l) i_ae_log_allocations_console_debug(l)
+/// <summary>
+/// Logs all current allocations to the log file when the build type is Debug.
+/// </summary>
+/// <param name="l">is the log_level to be used</param>
+#define AE_LOG_ALLOCATIONS_FILE(l) i_ae_log_allocations_file_debug(l)
+
+/// <summary>
+/// Logs all found memory leaks to the console when the build type is Debug. Always include at the very end of the program.
+/// </summary>
+#define AE_LOG_LEAKS_CONSOLE() i_ae_log_leaks_console_debug()
+/// <summary>
+/// Logs all found memory leaks to the log file when the build type is Debug. Always include at the very end of the program.
+/// </summary>
+#define AE_LOG_LEAKS_FILE() i_ae_log_leaks_file_debug()
+
+#endif // AE_DEBUG
+
+#ifdef AE_RELEASE
+
+/// <summary>
+/// Logs all current allocations to the console when the build type is Debug.
+/// </summary>
+/// <param name="l">is the log_level to be used</param>
+#define AE_LOG_ALLOCATIONS_CONSOLE(l)
+/// <summary>
+/// Logs all current allocations to the log file when the build type is Debug.
+/// </summary>
+/// <param name="l">is the log_level to be used</param>
+#define AE_LOG_ALLOCATIONS_FILE(l)
+
+/// <summary>
+/// Logs all found memory leaks to the console when the build type is Debug. Always include at the very end of the program.
+/// </summary>
+#define AE_LOG_LEAKS_CONSOLE()
+/// <summary>
+/// Logs all found memory leaks to the log file when the build type is Debug. Always include at the very end of the program.
+/// </summary>
+#define AE_LOG_LEAKS_FILE()
+
+#endif // AE_RELEASE
+
+#ifdef AE_DIST
+
+/// <summary>
+/// Logs all current allocations to the console when the build type is Debug.
+/// </summary>
+/// <param name="l">is the log_level to be used</param>
+#define AE_LOG_ALLOCATIONS_CONSOLE(l)
+/// <summary>
+/// Logs all current allocations to the log file when the build type is Debug.
+/// </summary>
+/// <param name="l">is the log_level to be used</param>
+#define AE_LOG_ALLOCATIONS_FILE(l)
+
+/// <summary>
+/// Logs all found memory leaks to the console when the build type is Debug. Always include at the very end of the program.
+/// </summary>
+#define AE_LOG_LEAKS_CONSOLE()
+/// <summary>
+/// Logs all found memory leaks to the log file when the build type is Debug. Always include at the very end of the program.
+/// </summary>
+#define AE_LOG_LEAKS_FILE()
 
 #endif // AE_DIST
