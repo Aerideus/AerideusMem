@@ -1,3 +1,4 @@
+#include "aerideus_log.h"
 
 #include <stdlib.h>
 
@@ -127,3 +128,23 @@ void i_ae_free_debug(void* d);
 #define AE_FREE(d) free(d)
 
 #endif // AE_DIST
+
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_ALLOCATIONS_CONSOLE)
+/// </summary>
+/// <param name="l">should not be specified</param>
+void i_ae_log_allocations_console_debug(log_level l);
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_ALLOCATIONS_FILE)
+/// </summary>
+/// <param name="l">should not be specified</param>
+void i_ae_log_allocations_file_debug(log_level l);
+
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_LEAKS_CONSOLE)
+/// </summary>
+void i_ae_log_leaks_console_debug();
+/// <summary>
+/// Internal function that should only be called through macro. (AE_LOG_LEAKS_FILE)
+/// </summary>
+void i_ae_log_leaks_file_debug();

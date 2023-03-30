@@ -1,5 +1,4 @@
 #include "aerideus_mem.h"
-#include "aerideus_log.h"
 
 int main(void)
 {
@@ -19,6 +18,8 @@ int main(void)
 	AE_LOG_CONSOLE_INFO("a[0] = %d, a[1] = %d, a[2] = %d", a[0], a[1], a[2]);
 
 	AE_FREE(a);
+
+	i_ae_log_leaks_console_debug();
 
 	return 0;
 }
