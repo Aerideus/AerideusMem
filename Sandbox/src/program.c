@@ -19,7 +19,7 @@ int main(void)
 
 	AE_FREE(a);
 
-	i_ae_log_leaks_console_debug();
+	AE_LOG_LEAKS_CONSOLE();
 
 	return 0;
 }
