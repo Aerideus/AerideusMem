@@ -1,3 +1,8 @@
+/*
+	Author: @rasmushugosson
+	Last modified: 2023-03-30
+*/
+
 #include "../internal/i_ae_structures.h"
 
 #include <stdlib.h>
