@@ -1,3 +1,8 @@
+/*
+	Author: @rasmushugosson
+	Last modified: 2023-03-30
+*/
+
 #include <stdint.h>
 
 typedef struct {
